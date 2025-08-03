@@ -1,0 +1,32 @@
+<header class="bg-white shadow sticky top-0 z-10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex items-center space-x-6">
+        <h1 class="text-xl sm:text-2xl font-bold text-blue-600">Study Resources</h1>
+        <nav class="hidden sm:flex space-x-6 text-gray-700 font-medium">
+          <a routerLink="/question-papers" routerLinkActive="text-blue-500" class="hover:text-blue-500">Question Papers</a>
+          <a routerLink="/projects-work" routerLinkActive="text-blue-500" class="hover:text-blue-500">Project Work</a>
+          <a routerLink="/lab-questions" routerLinkActive="text-blue-500" class="hover:text-blue-500">Lab Questions</a>
+        </nav>
+      </div>
+      <button (click)="toggleMobileMenu()" class="sm:hidden text-gray-700 focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <ng-container *ngIf="isMobileMenuOpen">
+      <nav class="sm:hidden mt-2 space-y-2 text-gray-700 font-medium px-2 py-2 border-t border-gray-200">
+        <a (click)="closeMobileMenu()" routerLink="/question-papers" routerLinkActive="text-blue-500" class="block hover:text-blue-500">Question Papers</a>
+        <a (click)="closeMobileMenu()" routerLink="/projects-work" routerLinkActive="text-blue-500" class="block hover:text-blue-500">Project Work</a>
+        <a (click)="closeMobileMenu()" routerLink="/lab-questions" routerLinkActive="text-blue-500" class="block hover:text-blue-500">Lab Questions</a>
+      </nav>
+    </ng-container>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-4 py-8 font-sans text-gray-800">
+  <router-outlet></router-outlet>
+</main>
